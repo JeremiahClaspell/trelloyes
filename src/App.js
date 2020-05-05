@@ -1,28 +1,20 @@
-import React, { Component } from 'react';
-import List from './List'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import List from './List';
 import './App.css';
-import STORE from './store.js'
+import STORE from './store.js';
 
-class App extends React.Component {
+function App(props){
 
-  render() {
-    return (
-      <main className='App'>
-        <header className='App-header'>
-          <h1>Trelloyes</h1>
-        </header>
-        <div className='App-list'>
-          {STORE.lists.map(list => (
-            <List
-              key={list.id}
-              header={list.header}
-              cards={list.cardIds.map(id => STORE.allCards[id])}
-            />
-          ))}
-        </div>
-      </main>
-    );
-  }
+  return (
+
+    <main className="App">
+    <header className="App-header">
+      <h1>Trelloyes!</h1>
+    </header>
+    <div id="App-list"><List list={STORE.lists} cards={STORE.allCards} key="1"/></div>
+    </main>
+  )
 }
 
 export default App;
